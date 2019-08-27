@@ -111,8 +111,8 @@
  * - #MSPACK_ERR_DATAFORMAT indicates that the file being used or read
  *   is corrupt.
  * - #MSPACK_ERR_CHECKSUM indicates that a data checksum has failed.
- * - #MSPACK_ERR_CRUNCH indicates an error occured during compression.
- * - #MSPACK_ERR_DECRUNCH indicates an error occured during decompression.
+ * - #MSPACK_ERR_CRUNCH indicates an error occurred during compression.
+ * - #MSPACK_ERR_DECRUNCH indicates an error occurred during decompression.
  */
 
 #pragma once
@@ -991,7 +991,7 @@ struct mscab_decompressor {
    *   filename is mscabd_cabinet::nextname
    *
    * If the cabinets do not match, an error code will be returned. Neither
-   * cabinet has been altered, and both should be closed seperately.
+   * cabinet has been altered, and both should be closed separately.
    *
    * Files and folders in a cabinet set are a single entity. All cabinets
    * in a set use the same file list, which is updated as cabinets in the

@@ -195,7 +195,7 @@ def read_user_metadata(mi, root):
                             traceback.print_exc()
 
 
-def read_xmp_identifers(parent):
+def read_xmp_identifiers(parent):
     ''' For example:
     <rdf:li rdf:parseType="Resource"><xmpidq:Scheme>URL</xmp:idq><rdf:value>http://foo.com</rdf:value></rdf:li>
     or the longer form:
@@ -305,7 +305,7 @@ def metadata_from_xmp_packet(raw_bytes):
 
     identifiers = {}
     for xmpid in XPath('//xmp:Identifier')(root):
-        for scheme, value in read_xmp_identifers(xmpid):
+        for scheme, value in read_xmp_identifiers(xmpid):
             if scheme and value:
                 identifiers[scheme.lower()] = value
 

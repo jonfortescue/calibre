@@ -108,7 +108,7 @@ class GetOptions:
             pass
             """
             sys.stderr.write(
-                'You must provide an ouput file with the \'o\' option\n')
+                'You must provide an output file with the \'o\' option\n')
             return_options['valid'] = 0
             """
         if 'level' in the_keys:

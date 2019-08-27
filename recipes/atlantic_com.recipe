@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 __license__ = 'GPL v3'
 __copyright__ = '2008, Kovid Goyal <kovid at kovidgoyal.net>'
 '''
-Recipe for web and magazine versions of the The Atlantic
+Recipe for web and magazine versions of The Atlantic
 '''
 from calibre.web.feeds.news import BasicNewsRecipe
 

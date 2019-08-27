@@ -3,11 +3,11 @@ from (https://wiki.mobileread.com/wiki/MOBI)
 About
 -----
 
-MOBI is the format used by the the MobiPocket Reader. It may have a .mobi
+MOBI is the format used by the MobiPocket Reader. It may have a .mobi
 extension or it may have a .prc extension. The extension can be changed by the
 user to either of the accepted forms. In either case it may be DRM protected or
 non-DRM. The .prc extension is used because the PalmOS doesn't support any file
-extensions except .prc or .pdb. Note that Mobipocket prohibits their DRM format
+extensions except .prc or .pdb. Note that MobiPocket prohibits their DRM format
 to be used on dedicated eBook readers that support other DRM formats.
 
 
@@ -34,7 +34,7 @@ uses a slightly different DRM scheme.
 Format
 ------
 
-Like PalmDOC, the Mobipocket file format is that of a standard Palm Database
+Like PalmDOC, the MobiPocket file format is that of a standard Palm Database
 Format file. The header of that format includes the name of the database
 (usually the book title and sometimes a portion of the authors name) which is
 up to 31 bytes of data. The files are identified as Creator ID of MOBI and a
@@ -45,7 +45,7 @@ PalmDOC Header
 --------------
 
 The first record in the Palm Database Format gives more information about the
-Mobipocket file. The first 16 bytes are almost identical to the first sixteen
+MobiPocket file. The first 16 bytes are almost identical to the first sixteen
 bytes of a PalmDOC format file.
 
 bytes   content             comments
@@ -64,11 +64,11 @@ compression type (17480), and the Current Position bytes are used for a
 different purpose:
 
 bytes   content             comments
-2       Encryption Type     0 == no encryption, 1 = Old Mobipocket Encryption,
-                            2 = Mobipocket Encryption.
+2       Encryption Type     0 == no encryption, 1 = Old MobiPocket Encryption,
+                            2 = MobiPocket Encryption.
 2       Unknown             Usually zero
 
-The old Mobipocket Encryption scheme only allows the file to be registered
+The old MobiPocket Encryption scheme only allows the file to be registered
 with one PID, unlike the current encryption scheme that allows multiple PIDs to
 be used in a single file. Unless specifically mentioned, all the encryption
 information on this page refers to the current scheme.
@@ -77,7 +77,7 @@ information on this page refers to the current scheme.
 MOBI Header
 -----------
 
-Most Mobipocket file also have a MOBI header in record 0 that follows these
+Most MobiPocket file also have a MOBI header in record 0 that follows these
 16 bytes, and newer formats also have an EXTH header following the MOBI header,
 again all in record 0 of the PDB file format.
 
@@ -88,8 +88,8 @@ offset  bytes   content                 comments
 16      4       identifier              The characters M O B I
 20      4       header length           The length of the MOBI header, including
                                         the previous 4 bytes
-24      4       Mobi type               The kind of Mobipocket file this is
-                                            2 Mobipocket Book
+24      4       Mobi type               The kind of MobiPocket file this is
+                                            2 MobiPocket Book
                                             3 PalmDoc Book
                                             4 Audio
                                             257 News
@@ -104,7 +104,7 @@ offset  bytes   content                 comments
 28      4       text Encoding           1252 = CP1252 (WinLatin1); 65001 = UTF-8
 32      4       Unique-ID               Some kind of unique ID number (random?)
 36      4       Generator version       Potentially the version of the
-                                        Mobipocket-generation tool. Always >=
+                                        MobiPocket-generation tool. Always >=
                                         the value of the "format version" field
                                         and <= the version of mobigen used to
                                         produce the file.
@@ -123,7 +123,7 @@ offset  bytes   content                 comments
 96      4       Input Language          Input language for a dictionary
 100     4       Output Language         Output language for a dictionary
 104     4       Format version          Potentially the version of the
-                                        Mobipocket format used in this file.
+                                        MobiPocket format used in this file.
                                         Always >= 1 and <= the value of the
                                         "generator version" field.
 108     4       First Image record      First record number (starting with 0)
@@ -159,7 +159,7 @@ The following records are only present if the mobi header is long enough.
 242     2       Extra Data Flags        A set of binary flags, some of which
                                         indicate extra data at the end of each
                                         text block. This only seems to be valid
-                                        for Mobipocket format version 5 and 6
+                                        for MobiPocket format version 5 and 6
                                         (and higher?), when the header length
                                         is 228 (0xE4) or 232 (0xE8).
 
@@ -170,7 +170,7 @@ EXTH Header
 If the MOBI header indicates that there's an EXTH header, it follows immediately
 after the MOBI header. since the MOBI header is of variable length, this isn't
 at any fixed offset in record 0. Note that some readers will ignore any EXTH
-header info if the mobipocket version number specified in the MOBI header is 2
+header info if the MobiPocket version number specified in the MOBI header is 2
 or less (perhaps 3 or less).
 
 The EXTH header is also undocumented, so some of this is guesswork.
@@ -185,7 +185,7 @@ bytes   content             comments
 L-8     record data         Data.
         EXTH record end     Repeat until done.
 
-There are lots of different EXTH Records types. Ones found so far in Mobipocket
+There are lots of different EXTH Records types. Ones found so far in MobiPocket
 files are listed here, with possible meanings. Hopefully the table will be
 filled in as more information comes to light.
 
@@ -210,7 +210,7 @@ record type    usual length     name             comments
 114                             versionnumber
 115                             sample
 116                             startreading
-117            3                adult            Mobipocket Creator adds this if Adult only is checked; contents: "yes" 
+117            3                adult            MobiPocket Creator adds this if Adult only is checked; contents: "yes" 
 118                             retail price     As text, e.g. "4.99" 
 119                             retail price currency     As text, e.g. "USD" 
 201            4                coveroffset      Add to first image field in Mobi Header to find PDB record containing the cover image 
@@ -239,7 +239,7 @@ file name, the offset of which is given in the MOBI header.
 Variable-width integers
 -----------------------
 
-Some parts of the Mobipocket format encode data as variable-width integers.
+Some parts of the MobiPocket format encode data as variable-width integers.
 These integers are represented big-endian with 7 bits per byte in bits 1-7. They
 may be either forward-encoded, in which case only the LSB has bit 8 set, or
 backward-encoded, in which case only the MSB has bit 8 set. For example, the
@@ -266,7 +266,7 @@ follow a common format. That format is:
     <data><size>
 
 Where <size> is the size of the entire trailing entry (including the size of
-<size>) as a backward-encoded Mobipocket variable-width integer.
+<size>) as a backward-encoded MobiPocket variable-width integer.
 
 Only a few bits have been identified
 
@@ -316,7 +316,7 @@ In the PalmDoc format, a length-distance pair is always encoded by a two-byte
 sequence. Of the 16 bits that make up these two bytes, 11 bits go to encoding
 the distance, 3 go to encoding the length, and the remaining two are used to
 make sure the decoder can identify the first byte as the beginning of such a
-two-byte sequence. The exact alforithm needed to decode the compressed text can
+two-byte sequence. The exact algorithm needed to decode the compressed text can
 be found on the PalmDOC page.
 
 PalmDOC data is always divided into 4096 byte blocks and the blocks are acted
@@ -413,7 +413,7 @@ kindlegen creates a record whose content is a zip archive of all source files
 generated MOBI file. The record begins with the "SRCS" signature and is
 located just before the #End-of-file Record.
 
-MOBI files created with Mobipocket creator, Amazon's Personal Document Service,
+MOBI files created with MobiPocket creator, Amazon's Personal Document Service,
 or Kindle Direct Publishing (former Amazon DTP) don't include SRCS record.
 In a past, kindlegen had an undocumented option to suppress this record, but
 the option was removed in 2010.

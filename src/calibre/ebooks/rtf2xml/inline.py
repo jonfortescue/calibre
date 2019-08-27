@@ -175,7 +175,7 @@ class Inline:
         Logic:
             If the token is a control word for character info (cw<ci), use another
             method to add to the dictionary.
-            Use the dictionary to get the approriate function.
+            Use the dictionary to get the appropriate function.
             Always print out the line.
         """
         if line[0:5] == 'cw<ci':  # calibre: bug in original function no diff between cw<ci and cw<pf
@@ -332,7 +332,7 @@ class Inline:
             nothing
         Logic:
             Slice from the end the groups in waiting.
-            Iterate through the list. If the dictionary contaings info, write
+            Iterate through the list. If the dictionary contains info, write
             a closing tag.
         """
         if not self.__in_para:
@@ -361,7 +361,7 @@ class Inline:
             nothing
         Logic:
             Iterate through the self.__inline_list to get each dict.
-            If the dict containst inline info, get the keys.
+            If the dict contains inline info, get the keys.
             Iterate through the keys and print out the key and value.
         """
         for the_dict in self.__inline_list:

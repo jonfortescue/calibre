@@ -73,8 +73,8 @@ class VrijNederlandRecipe(BasicNewsRecipe):
             link = meta.find('span', attrs={'class': 'link'})
             if link:
                 link.extract()
-            for seperator in meta.findAll('span', attrs={'class': 'seperator'}):
-                seperator.extract()
+            for separator in meta.findAll('span', attrs={'class': 'separator'}):
+                separator.extract()
 
         # Their header is full of 'if IE6/7/8' tags. Just get rid of it
         # altogether

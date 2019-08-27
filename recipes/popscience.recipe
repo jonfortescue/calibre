@@ -36,7 +36,7 @@ class AdvancedUserRecipe1282101454(BasicNewsRecipe):
     ]
 
     remove_tags = [
-        dict(attrs={'class': lambda x: x and frozenset('ads seperator'.split()).issubset(frozenset(x.split()))}),
+        dict(attrs={'class': lambda x: x and frozenset('ads separator'.split()).issubset(frozenset(x.split()))}),
     ]
 
     def preprocess_html(self, soup):

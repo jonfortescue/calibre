@@ -682,7 +682,7 @@ struct inflate_huft_s {
       Byte Bits;        // number of bits in this code or subcode
     } what;
     uInt pad;           // pad structure to a power of 2 (4 bytes for
-  } word;               //  16-bit, 8 bytes for 32-bit int's)
+  } word;               //  16-bit, 8 bytes for 32-bit ints)
   uInt base;            // literal, length base, distance base, or table offset
 };
 
@@ -1348,7 +1348,7 @@ const uInt border[] = { // Order of the bit length code lengths
 //    end-of-block.  Note however that the static length tree defines
 //    288 codes just to fill out the Huffman codes.  Codes 286 and 287
 //    cannot be used though, since there is no length base or extra bits
-//    defined for them.  Similarily, there are up to 30 distance codes.
+//    defined for them.  Similarly, there are up to 30 distance codes.
 //    However, static trees define 32 codes (all 5 bits) to fill out the
 //    Huffman codes, but the last two had better not show up in the data.
 // 7. Unzip can check dynamic Huffman blocks for complete code sets.
@@ -3005,8 +3005,8 @@ int strcmpcasenosensitive_internal (const char* fileName1,const char *fileName2)
 
 //
 // Compare two filename (fileName1,fileName2).
-// If iCaseSenisivity = 1, comparision is case sensitivity (like strcmp)
-// If iCaseSenisivity = 2, comparision is not case sensitivity (like strcmpi or strcasecmp)
+// If iCaseSenisivity = 1, comparison is case sensitivity (like strcmp)
+// If iCaseSenisivity = 2, comparison is not case sensitivity (like strcmpi or strcasecmp)
 //
 int unzStringFileNameCompare (const char*fileName1,const char*fileName2,int iCaseSensitivity)
 { if (iCaseSensitivity==1) return strcmp(fileName1,fileName2);
@@ -3075,7 +3075,7 @@ unzFile unzOpenInternal(LUFILE *fin)
   uLong number_disk;          // number of the current dist, used for spanning ZIP, unsupported, always 0
   if (unzlocal_getShort(fin,&number_disk)!=UNZ_OK) err=UNZ_ERRNO;
   // number of the disk with the start of the central directory
-  uLong number_disk_with_CD;  // number the the disk with central dir, used for spaning ZIP, unsupported, always 0
+  uLong number_disk_with_CD;  // number the disk with central dir, used for spaning ZIP, unsupported, always 0
   if (unzlocal_getShort(fin,&number_disk_with_CD)!=UNZ_OK) err=UNZ_ERRNO;
   // total number of entries in the central dir on this disk
   if (unzlocal_getShort(fin,&us.gi.number_entry)!=UNZ_OK) err=UNZ_ERRNO;

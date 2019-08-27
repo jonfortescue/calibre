@@ -3164,7 +3164,7 @@ If general purpose bit 11 is unset, the file name and comment should conform
 to the original ZIP character encoding.  If general purpose bit 11 is set, the 
 filename and comment must support The Unicode Standard, Version 4.1.0 or 
 greater using the character encoding form defined by the UTF-8 storage 
-specification.  The Unicode Standard is published by the The Unicode
+specification.  The Unicode Standard is published by the Unicode
 Consortium (www.unicode.org).  UTF-8 encoded data stored within ZIP files 
 is expected to not include a byte order mark (BOM). 
 
